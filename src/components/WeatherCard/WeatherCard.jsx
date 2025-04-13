@@ -10,11 +10,19 @@ function WeatherCard({ weatherData }) {
   });
 
   const weatherOptionUrl = filteredOptions[0]?.url;
+  const weatherOptionCondition = filteredOptions[0]?.condition;
+  const weatherOptionDay = filteredOptions[0]?.day;
 
   return (
     <section className="weather-card">
       <p className="weather-card__temp">{weatherData.temp.F} &deg; F</p>
-      <img src={weatherOptionUrl} alt="sunny" className="weather-card__image" />
+      <img
+        src={weatherOptionUrl}
+        alt={`Card showing ${
+          weatherOptionDay ? "day" : "night"
+        }time ${weatherOptionCondition} weather`}
+        className="weather-card__image"
+      />
     </section>
   );
 }
