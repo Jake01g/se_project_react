@@ -1,8 +1,7 @@
-# React + Vite
+Weather Checker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project Description:
+This project is a responsive React web app that lets users see what the temperature and condition of a specific GPS coordinate is and what clothing is appropriate.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Technologies and Techniques Used:
+The app is built using React with functional components and React Hooks like useState, useEffect, and useContext for managing component state and global user data. React Router is used for page navigation, and the app communicates with a backend using fetch for API calls. Conditional rendering is used to control access and content visibility based on user authentication. The project uses CSS with the BEM naming convention for styling and organizing component styles.
