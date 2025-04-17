@@ -24,6 +24,7 @@
 }
 
 .modal__close {
+  color: transparent;
   position: absolute;
   top: 20px;
   right: 28px;
@@ -32,6 +33,9 @@
   background-image: url(../../assets/modal-close.svg);
   border: none;
   opacity: 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
 }
 
 .modal__close:hover {
@@ -64,13 +68,18 @@
 }
 
 .modal__input {
+  border-style: none;
   display: block;
   height: 24px;
   width: 100%;
-  border-bottom: 1px solid;
+  border-bottom: solid black 1px;
   font-family: "Cabinet Grotesk Regular", "Times New Roman", serif;
   padding: 0;
   margin: 8px 0 24px;
+}
+
+.modal__radio-input {
+  margin-right: 8px;
 }
 
 .modal__radio-buttons {
@@ -78,4 +87,37 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.modal__label-type-radio {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.modal__legend {
+  font-family: "Cabinet Grotesk Regular", "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  margin-bottom: 12px;
+}
+
+.modal__submit {
+  width: 124px;
+  height: 36px;
+  top: 557px;
+  left: 500px;
+  gap: 12px;
+  border-style: none;
+  font-family: "Cabinet Grotesk Regular", "Times New Roman", serif;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.modal__submit :disabled {
+  background: #0000004d;
 }
