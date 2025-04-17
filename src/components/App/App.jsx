@@ -153,7 +153,7 @@ function App() {
         </label>
         <fieldset className="modal__radio-buttons">
           <legend className="modal__legend">Select the weather type:</legend>
-          <label htmlFor="hot" className="modal__label modal__label-type-radio">
+          <div className="modal__radio-option">
             <input
               id="hot"
               type="radio"
@@ -161,13 +161,15 @@ function App() {
               value="hot"
               checked={formValues.weather === "hot"}
               onChange={handleWeatherChange}
-            />
-            Hot
-          </label>
-          <label
-            htmlFor="warm"
-            className="modal__label modal__label-type-radio"
-          >
+            />{" "}
+            <label
+              htmlFor="hot"
+              className="modal__label modal__label-type-radio"
+            >
+              Hot
+            </label>
+          </div>
+          <div className="modal__radio-option">
             <input
               id="warm"
               type="radio"
@@ -176,12 +178,14 @@ function App() {
               checked={formValues.weather === "warm"}
               onChange={handleWeatherChange}
             />
-            Warm
-          </label>
-          <label
-            htmlFor="cold"
-            className="modal__label modal__label-type-radio"
-          >
+            <label
+              htmlFor="warm"
+              className="modal__label modal__label-type-radio"
+            >
+              Warm
+            </label>
+          </div>
+          <div className="modal__radio-option">
             <input
               id="cold"
               type="radio"
@@ -190,8 +194,13 @@ function App() {
               checked={formValues.weather === "cold"}
               onChange={handleWeatherChange}
             />
-            Cold
-          </label>
+            <label
+              htmlFor="cold"
+              className="modal__label modal__label-type-radio"
+            >
+              Cold
+            </label>
+          </div>
         </fieldset>
       </ModalWithForm>
       <ItemModal

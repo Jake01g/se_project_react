@@ -93,9 +93,10 @@
 }
 
 .modal__label-type-radio {
-  margin-bottom: 10px;
   font-size: 16px;
   line-height: 20px;
+  color: #00000080;
+  accent-color: black;
 }
 
 .modal__legend {
@@ -116,8 +117,27 @@
   font-family: "Cabinet Grotesk Regular", "Times New Roman", serif;
   border-radius: 4px;
   color: #fff;
+  background: #0000004d;
 }
 
-.modal__submit :disabled {
-  background: #0000004d;
+.modal__submit:hover {
+  background: #00000099;
+}
+
+.modal__submit:enabled {
+  background: black;
+}
+
+.modal__radio-input:checked + .modal__label-type-radio {
+  color: black;
+}
+
+.modal__radio-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal__radio-input:checked + .modal__label-type-radio {
+  color: black;
 }
