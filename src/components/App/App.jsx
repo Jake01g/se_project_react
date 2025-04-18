@@ -124,7 +124,7 @@ function App() {
       <ModalWithForm
         title="New Garment"
         buttonText="Add garment"
-        activeModal={activeModal}
+        isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
         isFormValid={isFormValid}
         onSubmit={handleSubmit}
