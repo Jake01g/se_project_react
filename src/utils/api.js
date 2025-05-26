@@ -41,3 +41,5 @@ const api = {
   addItem,
   removeItem,
 };
+
+export default api;

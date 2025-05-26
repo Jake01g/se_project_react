@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import CurrentTemperatireUnitContext from "../../contexts/CurrentTemperatureUnitContext";
+//import { Route, Routes } from "react-router-dom";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { coordinates, APIkey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -144,7 +144,7 @@ function App() {
 
   return (
     <div className="page">
-      <CurrentTemperatireUnitContext.Provider
+      <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
@@ -239,7 +239,7 @@ function App() {
           card={selectedCard}
           onClose={closeActiveModal}
         />
-      </CurrentTemperatireUnitContext.Provider>
+      </CurrentTemperatureUnitContext.Provider>
     </div>
   );
 }
