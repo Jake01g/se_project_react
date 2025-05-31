@@ -7,7 +7,7 @@ function ModalWithForm({
   title,
   isOpen,
   onClose,
-  isFormValid,
+  // isFormValid,
   onSubmit,
 }) {
   return (
@@ -22,7 +22,7 @@ function ModalWithForm({
           <button
             type="submit"
             className="modal__submit"
-            disabled={!isFormValid}
+            //disabled={!isFormValid}
           >
             {buttonText}
           </button>

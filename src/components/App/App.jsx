@@ -23,18 +23,18 @@ function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [isFormValid, setIsFormValid] = useState(false);
-  const [formValues, setFormValues] = useState({
+  //const [isFormValid, setIsFormValid] = useState(true);
+  /*   const [formValues, setFormValues] = useState({
     name: "",
     imageUrl: "",
     weather: "",
-  });
+  }); */
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-
+  /*
   useEffect(() => {
     validateForm();
   }, [formValues]);
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -78,7 +78,7 @@ function App() {
     setIsFormValid(formValid);
     return formValid;
   };
-
+*/
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -96,14 +96,12 @@ function App() {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
-  const handleAddItemSubmit = (item) => {
-    api
-      .addItem(item)
-      .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
-        closeActiveModal();
-      })
-      .catch((err) => console.log(err));
+  const handleAddItemSubmit = ({ name, imageUrl, weather }) => {
+    setClothingItems((prevItems) => [
+      { name, link: imageUrl, weather },
+      ...prevItems,
+    ]);
+    closeActiveModal();
   };
 
   const handleCardDelete = (card) => {
@@ -141,8 +139,8 @@ function App() {
         <AddItemModal
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
-          isFormValid={isFormValid}
-          onSubmit={handleSubmit}
+          // isFormValid={isFormValid}
+          onAddItemSubmit={handleAddItemSubmit}
         />
         <ItemModal
           activeModal={activeModal}
