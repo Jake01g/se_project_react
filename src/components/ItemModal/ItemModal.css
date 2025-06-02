@@ -1,11 +1,19 @@
 .modal__image {
   width: 498px;
   height: 498px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  overflow: hidden;
 }
 
 .modal__content-type-image {
+  background-color: #fff;
+  position: relative;
   padding: 0;
-  overflow: hidden;
+  max-width: 498px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 16px;
 }
 
 .modal__caption {
