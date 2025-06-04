@@ -7,6 +7,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
+import Profile from "../Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import api from "../../utils/api";
 import AddItemModal from "../AddItemModal/AddItemModal";
@@ -140,7 +141,15 @@ function App() {
                 />
               }
             ></Route>
-            <Route path="/profile" element={<p>PROFILE</p>}></Route>
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  weatherData={weatherData}
+                  clothingItems={clothingItems}
+                />
+              }
+            ></Route>
           </Routes>
 
           <Footer />
