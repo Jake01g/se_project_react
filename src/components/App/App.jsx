@@ -123,6 +123,15 @@ function App() {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+    api
+      .getItemList()
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
@@ -147,6 +156,8 @@ function App() {
                 <Profile
                   weatherData={weatherData}
                   clothingItems={clothingItems}
+                  onCardClick={handleCardClick}
+                  handleAddClick={handleAddClick}
                 />
               }
             ></Route>
