@@ -1,6 +1,7 @@
 .clothes__section-header {
   display: flex;
   font-size: 20px;
+  height: 41px;
 }
 
 .clothes-section__button {
@@ -8,8 +9,20 @@
   color: rgba(0, 0, 0, 0.6);
   border: none;
   padding-left: 20px;
+  padding-top: 0;
   font: inherit;
   cursor: pointer;
   outline: inherit;
   font-size: 20px;
+  line-height: 1.15;
+  height: 22px;
+  margin-top: 20px;
+}
+
+.clothes-section__text {
+  margin-bottom: 0;
+}
+
+.clothes-section__items {
+  padding: 0;
 }

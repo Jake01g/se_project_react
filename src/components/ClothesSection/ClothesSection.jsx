@@ -10,7 +10,7 @@ function ClothesSection({
   return (
     <div className="clothes-section">
       <div className="clothes__section-header">
-        <p>Your Items</p>
+        <p className="clothes-section__text">Your Items</p>
         <button className="clothes-section__button" onClick={handleAddClick}>
           + Add New
         </button>

@@ -10,3 +10,9 @@
   height: 56px;
   width: 56px;
 }
+
+.sidebar__username {
+  margin-bottom: 16px;
+  margin-top: 16px;
+  height: 24px;
+}

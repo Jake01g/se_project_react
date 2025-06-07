@@ -36,6 +36,7 @@
 }
 
 .item__modal-close {
+  background-color: transparent;
   color: transparent;
   border: none;
   position: absolute;
