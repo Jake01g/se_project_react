@@ -17,6 +17,7 @@ export default function AddItemModal({ onClose, isOpen, onAddItemSubmit }) {
 
   const handleWeatherChange = (e) => {
     setWeather(e.target.value);
+    1;
   };
 
   const handleSubmit = (e) => {

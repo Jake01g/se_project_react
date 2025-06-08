@@ -82,6 +82,7 @@ function App() {
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
+    console.log(card);
   };
 
   const handleAddClick = () => {
@@ -106,9 +107,10 @@ function App() {
 
   const handleCardDelete = (card) => {
     api
-      .removeItem(card.id)
+      .removeItem(card._id)
       .then(() => {
-        setClothingItems((cards) => cards.filter((c) => c.id !== card.id));
+        setClothingItems((cards) => cards.filter((c) => c._id !== card._id));
+        closeActiveModal();
       })
       .catch((err) => console.log(err));
   };
@@ -174,6 +176,7 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           onClose={closeActiveModal}
+          handleCardDelete={handleCardDelete}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>

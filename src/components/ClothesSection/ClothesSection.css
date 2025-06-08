@@ -1,7 +1,16 @@
+.clothes-section__items {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  gap: 21px;
+}
+
 .clothes__section-header {
   display: flex;
   font-size: 20px;
   height: 41px;
+  margin-bottom: 16px;
 }
 
 .clothes-section__button {
