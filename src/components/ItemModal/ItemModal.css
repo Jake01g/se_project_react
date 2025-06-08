@@ -4,6 +4,7 @@
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   overflow: hidden;
+  padding: 0;
 }
 
 .modal__content-type-image {
@@ -48,4 +49,26 @@
   height: 20px;
   width: 20px;
   opacity: 1;
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__delete-button {
+  background: none;
+  color: #ff4d00;
+  border: none;
+  padding-right: 32px;
+  padding-top: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  line-height: 1.15;
+  margin-top: 16.6px;
+  height: 24px;
+  font-family: "Cabinet Grotesk Bold", "Times New Roman", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
 }
