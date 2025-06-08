@@ -11,7 +11,6 @@ import Profile from "../Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import api from "../../utils/api";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { defaultClothingItems } from "../../utils/constants";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -21,7 +20,7 @@ function App() {
     condition: "",
     isDay: false,
   });
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   //const [isFormValid, setIsFormValid] = useState(true);
@@ -99,7 +98,7 @@ function App() {
 
   const handleAddItemSubmit = ({ name, imageUrl, weather }) => {
     setClothingItems((prevItems) => [
-      { name, link: imageUrl, weather },
+      { name, imageUrl, weather },
       ...prevItems,
     ]);
     closeActiveModal();
@@ -127,7 +126,7 @@ function App() {
     api
       .getItemList()
       .then((data) => {
-        console.log(data);
+        setClothingItems(data);
       })
       .catch(console.error);
   }, []);
