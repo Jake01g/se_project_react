@@ -1,8 +1,9 @@
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function AddItemModal({ onClose, isOpen, onAddItemSubmit }) {
+  const [isFormValid, setIsFormValid] = useState(false);
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
@@ -17,7 +18,6 @@ export default function AddItemModal({ onClose, isOpen, onAddItemSubmit }) {
 
   const handleWeatherChange = (e) => {
     setWeather(e.target.value);
-    1;
   };
 
   const handleSubmit = (e) => {
@@ -29,13 +29,33 @@ export default function AddItemModal({ onClose, isOpen, onAddItemSubmit }) {
     setWeather("");
   };
 
+  useEffect(() => {
+    validateForm();
+  }, [name, imageUrl, weather]);
+
+  const isUrlValid = (url) => {
+    try {
+      new URL(url);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+  const validateForm = () => {
+    const isNameValid = name.length >= 2;
+    const isWeatherValid =
+      weather === "hot" || weather === "warm" || weather === "cold";
+    const formValid = isNameValid && isUrlValid(imageUrl) && isWeatherValid;
+    setIsFormValid(formValid);
+  };
+
   return (
     <ModalWithForm
       title="New Garment"
       name="new-card"
       isOpen={isOpen}
       onClose={onClose}
-      //isFormValid={isFormValid}
+      isFormValid={isFormValid}
       onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">

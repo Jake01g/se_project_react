@@ -23,66 +23,12 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  //const [isFormValid, setIsFormValid] = useState(true);
-  /*   const [formValues, setFormValues] = useState({
-    name: "",
-    imageUrl: "",
-    weather: "",
-  }); */
+
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  /*
-  useEffect(() => {
-    validateForm();
-  }, [formValues]);
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    // Create new item object from form values
-    const newItem = {
-      name: formValues.name,
-      imageUrl: formValues.imageUrl,
-      weather: formValues.weather,
-    };
-
-    // Add new item to items array
-    setItems([...clothingItems, newItem]);
-
-    // Close modal
-    closeActiveModal();
-
-    // Reset form values
-    setFormValues({
-      name: "",
-      imageUrl: "",
-      weather: "",
-    });
-  };
-
-  const isUrlValid = (url) => {
-    try {
-      new URL(url);
-      return true;
-    } catch (error) {
-      return false;
-    }
-  };
-  const validateForm = () => {
-    const isNameValid = formValues.name.length >= 2;
-    const isWeatherValid =
-      formValues.weather === "hot" ||
-      formValues.weather === "warm" ||
-      formValues.weather === "cold";
-    const formValid =
-      isNameValid && isUrlValid(formValues.imageUrl) && isWeatherValid;
-    setIsFormValid(formValid);
-    return formValid;
-  };
-*/
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
-    console.log(card);
   };
 
   const handleAddClick = () => {
@@ -98,11 +44,13 @@ function App() {
   };
 
   const handleAddItemSubmit = ({ name, imageUrl, weather }) => {
-    setClothingItems((prevItems) => [
-      { name, imageUrl, weather },
-      ...prevItems,
-    ]);
-    closeActiveModal();
+    api
+      .addItem({ name, imageUrl, weather })
+      .then((newItem) => {
+        setClothingItems((prevItems) => [newItem, ...prevItems]);
+        closeActiveModal();
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleCardDelete = (card) => {
@@ -169,7 +117,6 @@ function App() {
         <AddItemModal
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
-          // isFormValid={isFormValid}
           onAddItemSubmit={handleAddItemSubmit}
         />
         <ItemModal
