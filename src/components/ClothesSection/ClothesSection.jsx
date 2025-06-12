@@ -16,19 +16,15 @@ function ClothesSection({
         </button>
       </div>
       <ul className="clothes-section__items">
-        {clothingItems
-          .filter((item) => {
-            return item.weather === weatherData.type;
-          })
-          .map((filteredItem) => {
-            return (
-              <ItemCard
-                key={filteredItem._id}
-                item={filteredItem}
-                onCardClick={onCardClick}
-              />
-            );
-          })}
+        {clothingItems.map((filteredItem) => {
+          return (
+            <ItemCard
+              key={filteredItem._id}
+              item={filteredItem}
+              onCardClick={onCardClick}
+            />
+          );
+        })}
       </ul>
     </div>
   );

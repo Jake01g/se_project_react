@@ -24,9 +24,6 @@ export default function AddItemModal({ onClose, isOpen, onAddItemSubmit }) {
     e.preventDefault();
 
     onAddItemSubmit({ name, imageUrl, weather });
-    setName("");
-    setImageUrl("");
-    setWeather("");
   };
 
   useEffect(() => {
